@@ -6,6 +6,13 @@
                 alert('Tolong diisi berat paket');
                 document.getElementById('beratx').style.backgroundColor = 'red';
                 return false;
+            }                   
+        }
+        function checkforblank2(){
+            if(document.getElementById('resix').value ==""){
+                alert('Tolong diisi nomor resi pengiriman');
+                document.getElementById('resix').style.backgroundColor = 'red';
+                return false;
             }
         }
         
@@ -95,11 +102,11 @@
               <h4 class="modal-title">Keluhan</h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" action="formkeluhan.php" method="post" id="formkeluhan">
+              <form class="form-horizontal" action="formkeluhan.php" onsubmit="return checkforblank2()" method="post" id="formkeluhan">
                 <div class="form-group">
                   <label class="col-xs-2 control-label">Resi</label>
                   <div class="col-xs-10">
-                    <input type="text" name="resi" class="form-control" pattern="[0-9]{10}">
+                    <input type="number" id="resix" name="resi" class="form-control" pattern="[0-9]{10}">
                     <input type="submit" class="hide">
                   </div>
                 </div>
