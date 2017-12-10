@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html>
+    <script>
+        function checkforblank(){
+            if(document.getElementById('beratx').value == ""){
+                alert('Tolong diisi berat paket');
+                document.getElementById('beratx').style.backgroundColor = 'red';
+                return false;
+            }
+        }
+        
+    </script>
+    
   <head>
     <meta charset="utf-8">
     <title>KiBar Express</title>
@@ -63,7 +74,7 @@
                 <div class="form-group">
                   <label class="col-xs-2 control-label">Resi</label>
                   <div class="col-xs-10">
-                    <input type="text" name="resi" class="form-control" pattern="[0-7]{8}" placeholder="Nomor Resi" id="inputResi">
+                    <input type="text" name="resi" class="form-control" pattern="[0-9]{10}" placeholder="Nomor Resi" id="inputResi">
                     <p class="help-block">Nomor Resi terdiri dari 10 karakter</p>
                     <p class="help-block">Contoh Nomor Resi: 0123456789</p>
                   </div>
@@ -108,7 +119,7 @@
               <h4 class="modal-title">Cek Tarif</h4>
             </div>
             <div class="modal-body">
-              <form class="form-inline text-center" action="cektarif.php" method="post">
+              <form class="form-inline text-center" action="cektarif.php" onsubmit="return checkforblank()" method="post">
                 <div class="form-group">
                   <label for="sel1" class="control-label">Lokasi Asal </label>
                   <select class="form-control" name="lokasiasal" id="sel1">
@@ -128,11 +139,11 @@
                 <div class="form-group">
                   <label for="berat">Berat</label>
                   <div class="input-group">
-                    <input type="text" name="berat" class="form-control"><span class="input-group-addon"> Kg</span>
+                    <input type="number" id="beratx" name="berat" class="form-control"><span class="input-group-addon"> Kg</span>
                   </div>
                 </div>
                 <div class="form-group">
-                <input type="submit" name="submit" value="Cek Tarif" class="btn btn-default">
+                <input type="submit" name="submit" value="Cek Tarif" class="btn btn-default" >
               </form>
             </div>
 
